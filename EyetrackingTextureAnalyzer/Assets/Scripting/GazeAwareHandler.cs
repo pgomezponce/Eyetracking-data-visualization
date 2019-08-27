@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Tobii.Gaming;
+using Newtonsoft.Json;
 
 namespace Assets.Scripting
 {
     public class GazeAwareHandler : MonoBehaviour
     {
         private const int DELTA_CHECK = 25;
+        private const string PATH = "output/";
 
         // Start is called before the first frame update
         void Start()
@@ -39,6 +41,8 @@ namespace Assets.Scripting
         // Update is called once per frame
         void Update()
         {
+
+
             Ray r;
             RaycastHit hit;
 
@@ -52,19 +56,38 @@ namespace Assets.Scripting
                 if (Physics.Raycast(r, out hit, Mathf.Infinity))
                 {
                     Material m = hit.collider.GetComponent<Renderer>().material;
-
-
-                    if (!System.IO.File.Exists("test.jpg"))
+                    ObjectGazeContainer ogc;
+                    string hitObjectName = hit.collider.name;
+                   
+                    if (!System.IO.File.Exists( PATH + hitObjectName  + "/" + hitObjectName + ".png"))
                     {
+                        //Generate info handler
+                        ogc = new ObjectGazeContainer(hitObjectName);
+
+                        //add empty data
+                        ogc.addGazePoint(new GazePoint(Vector2.zero, -10, -10));
+                        
+                        //Generate image file
                         Texture2D tt2 = m.mainTexture as Texture2D;
 
                         Texture2D readable = DeCompress(tt2);
 
                         byte[] file = readable.EncodeToPNG();
 
-                        System.IO.File.WriteAllBytes("test.png", file);
+                        System.IO.Directory.CreateDirectory(PATH + hitObjectName);
 
+                        System.IO.File.WriteAllBytes( PATH + hitObjectName + "/" + hitObjectName + ".png", file);
+
+                        System.IO.File.WriteAllText( PATH + hitObjectName + "/" + hitObjectName + ".json", JsonConvert.SerializeObject( ogc ));
                     }
+
+                    string json = System.IO.File.ReadAllText( PATH + hitObjectName + ".json");
+                    ogc = JsonConvert.DeserializeObject<ObjectGazeContainer>(json);
+
+                    ogc.addGazePoint(gp);
+                    ogc.addUVCoord(hit.textureCoord);
+
+                    System.IO.File.WriteAllText( PATH + hitObjectName + ".json", JsonConvert.SerializeObject(ogc));
                 }
             }
 

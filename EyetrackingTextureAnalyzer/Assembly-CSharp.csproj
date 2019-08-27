@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripting\CustomSystemTag\CustomTagSystem.cs" />
     <Compile Include="Assets\Scripting\GazeAwareHandler.cs" />
+    <Compile Include="Assets\Scripting\ObjectGazeContainer.cs" />
     <Compile Include="Assets\Tobii\Framework\DisplayInfo.cs" />
     <Compile Include="Assets\Tobii\Framework\GazeAware.cs" />
     <Compile Include="Assets\Tobii\Framework\GazePoint.cs" />
@@ -119,6 +120,7 @@
     <None Include="Assets\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_eye_blend.shader" />
     <None Include="Assets\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_hair_ds.shader" />
     <None Include="Assets\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_akarami_blend.shader" />
+    <None Include="Assets\JsonDotNet\link.xml" />
     <None Include="Assets\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_hair.shader" />
     <None Include="Assets\unity-chan!\Unity-chan! Model\Art\Stage\Shader\AlphaMask.shader" />
     <None Include="Assets\unity-chan!\Unity-chan! Model\Art\UnityChanShader\Shader\Unitychan_chara_eyelash_blend.shader" />
@@ -331,6 +333,9 @@
     </Reference>
     <Reference Include="Tobii.GameIntegration.Net">
       <HintPath>C:/Users/Pablo_BootCamp/Documents/GitHub/Eyetracking-data-visualization/EyetrackingTextureAnalyzer/Assets/Tobii/Plugins/Tobii.GameIntegration.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>C:/Users/Pablo_BootCamp/Documents/GitHub/Eyetracking-data-visualization/EyetrackingTextureAnalyzer/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.2f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
