@@ -55,6 +55,8 @@ namespace Assets.Scripting
 
                 if (Physics.Raycast(r, out hit, Mathf.Infinity))
                 {
+                    Debug.Log("Hit");
+
                     Material m = hit.collider.GetComponent<Renderer>().material;
                     ObjectGazeContainer ogc;
                     string hitObjectName = hit.collider.name;
@@ -81,13 +83,13 @@ namespace Assets.Scripting
                         System.IO.File.WriteAllText( PATH + hitObjectName + "/" + hitObjectName + ".json", JsonConvert.SerializeObject( ogc ));
                     }
 
-                    string json = System.IO.File.ReadAllText( PATH + hitObjectName + ".json");
+                    string json = System.IO.File.ReadAllText( PATH + hitObjectName + "/" + hitObjectName + ".json");
                     ogc = JsonConvert.DeserializeObject<ObjectGazeContainer>(json);
 
                     ogc.addGazePoint(gp);
-                    ogc.addUVCoord(hit.textureCoord);
+                    ogc.addUVCoord(hit.textureCoord1);
 
-                    System.IO.File.WriteAllText( PATH + hitObjectName + ".json", JsonConvert.SerializeObject(ogc));
+                    System.IO.File.WriteAllText( PATH + hitObjectName + "/" + hitObjectName + ".json", JsonConvert.SerializeObject(ogc));
                 }
             }
 

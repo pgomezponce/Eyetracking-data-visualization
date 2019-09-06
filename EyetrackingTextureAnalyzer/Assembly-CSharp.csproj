@@ -331,11 +331,11 @@
     <Reference Include="UnityEngine.XRModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
-    <Reference Include="Tobii.GameIntegration.Net">
-      <HintPath>C:/Users/Pablo_BootCamp/Documents/GitHub/Eyetracking-data-visualization/EyetrackingTextureAnalyzer/Assets/Tobii/Plugins/Tobii.GameIntegration.Net.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>C:/Users/Pablo_BootCamp/Documents/GitHub/Eyetracking-data-visualization/EyetrackingTextureAnalyzer/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Tobii.GameIntegration.Net">
+      <HintPath>C:/Users/Pablo_BootCamp/Documents/GitHub/Eyetracking-data-visualization/EyetrackingTextureAnalyzer/Assets/Tobii/Plugins/Tobii.GameIntegration.Net.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.2f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
